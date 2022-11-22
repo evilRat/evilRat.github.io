@@ -8,18 +8,18 @@
   <script data-ad-client="ca-pub-8990321486053761" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta name="baidu_union_verify" content="3b2f522004782a6f88e3aa9bb4df0854">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="双重检查锁定模式（也被称为”双重检查加锁优化”，”锁暗示”（Lock hint）) 是一种软件设计模式用来减少并发系统中竞争和同步的开销。双重检查锁定模式首先验证锁定条件(第一次检查)，只有通过锁定条件验证才真正的进行加锁逻辑并再次验证条件(第二次检查)。 该模式在某些语言在某些硬件平台的实现可能是不安全的。有的时候，这一模式被看做是反模式。它通常用于减少加锁开销，尤其是为多线程环境中的单例模式实">
+<meta name="description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双检锁">
-<meta property="og:url" content="https://kongzheng1993.github.io/2022/09/27/kongzheng1993-双检锁/index.html">
+<meta property="og:title" content="为什么需要JMM">
+<meta property="og:url" content="https://kongzheng1993.github.io/2022/09/27/kongzheng1993-为什么需要JMM/index.html">
 <meta property="og:site_name" content="Evil">
-<meta property="og:description" content="双重检查锁定模式（也被称为”双重检查加锁优化”，”锁暗示”（Lock hint）) 是一种软件设计模式用来减少并发系统中竞争和同步的开销。双重检查锁定模式首先验证锁定条件(第一次检查)，只有通过锁定条件验证才真正的进行加锁逻辑并再次验证条件(第二次检查)。 该模式在某些语言在某些硬件平台的实现可能是不安全的。有的时候，这一模式被看做是反模式。它通常用于减少加锁开销，尤其是为多线程环境中的单例模式实">
+<meta property="og:description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-25T13:48:56.241Z">
+<meta property="og:updated_time" content="2022-09-25T13:50:32.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="双检锁">
-<meta name="twitter:description" content="双重检查锁定模式（也被称为”双重检查加锁优化”，”锁暗示”（Lock hint）) 是一种软件设计模式用来减少并发系统中竞争和同步的开销。双重检查锁定模式首先验证锁定条件(第一次检查)，只有通过锁定条件验证才真正的进行加锁逻辑并再次验证条件(第二次检查)。 该模式在某些语言在某些硬件平台的实现可能是不安全的。有的时候，这一模式被看做是反模式。它通常用于减少加锁开销，尤其是为多线程环境中的单例模式实">
+<meta name="twitter:title" content="为什么需要JMM">
+<meta name="twitter:description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -122,15 +122,7 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(139)</small></div></li>
-    
-        
-            
-            <li><div data-rel="resume">resume<small>(1)</small></div>
-                
-            </li>
-            
-        
+    <li><div class="all active">全部文章<small>(140)</small></div></li>
     
         
             
@@ -184,14 +176,6 @@
     
         
             
-            <li><div data-rel="编码">编码<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="mysql"><i class="fold iconfont icon-right"></i>mysql<small>(5)</small></div>
                 
                     <ul class="sub hide">
@@ -203,6 +187,18 @@
                     </ul>
                 
             </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="编码">编码<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
             
         
     
@@ -224,10 +220,6 @@
     
         
             
-        
-    
-        
-            
             <li><div data-rel="Linux">Linux<small>(1)</small></div>
                 
             </li>
@@ -235,29 +227,6 @@
         
     
         
-            
-        
-    
-        
-            
-            <li><div data-rel="RSA"><i class="fold iconfont icon-right"></i>RSA<small>(1)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="SHA"><i class="fold iconfont icon-right"></i>SHA<small>(1)</small></div>
-                            
-                                <ul class="sub hide">
-                                    
-                                    <li><div data-rel="加密"><i class="fold iconfont icon-right"></i>加密<small>(1)</small></div>
-                                    </li>
-                                    
-                                </ul>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
             
         
     
@@ -286,7 +255,22 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(1)</small></div>
+            <li><div data-rel="RSA"><i class="fold iconfont icon-right"></i>RSA<small>(1)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="SHA"><i class="fold iconfont icon-right"></i>SHA<small>(1)</small></div>
+                            
+                                <ul class="sub hide">
+                                    
+                                    <li><div data-rel="加密"><i class="fold iconfont icon-right"></i>加密<small>(1)</small></div>
+                                    </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                            
+                    </ul>
                 
             </li>
             
@@ -302,9 +286,9 @@
     
         
             
-        
-    
-        
+            <li><div data-rel="jdk">jdk<small>(1)</small></div>
+                
+            </li>
             
         
     
@@ -326,13 +310,21 @@
     
         
             
-            <li><div data-rel="Web">Web<small>(5)</small></div>
-                
-            </li>
+        
+    
+        
             
         
     
         
+            
+        
+    
+        
+            
+            <li><div data-rel="Web">Web<small>(5)</small></div>
+                
+            </li>
             
         
     
@@ -346,7 +338,7 @@
     
         
             
-            <li><div data-rel="other">other<small>(3)</small></div>
+            <li><div data-rel="MQ">MQ<small>(1)</small></div>
                 
             </li>
             
@@ -358,7 +350,7 @@
     
         
             
-            <li><div data-rel="MQ">MQ<small>(1)</small></div>
+            <li><div data-rel="other">other<small>(3)</small></div>
                 
             </li>
             
@@ -394,6 +386,14 @@
     
         
             
+            <li><div data-rel="resume">resume<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="Mysql">Mysql<small>(1)</small></div>
                 
             </li>
@@ -418,23 +418,7 @@
     
         
             
-            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="MySQL">MySQL<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Nginx">Nginx<small>(1)</small></div>
                 
             </li>
             
@@ -458,7 +442,23 @@
     
         
             
-            <li><div data-rel="分布式">分布式<small>(2)</small></div>
+        
+    
+        
+            
+            <li><div data-rel="Nginx">Nginx<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
                 
             </li>
             
@@ -474,15 +474,7 @@
     
         
             
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="AI">AI<small>(1)</small></div>
+            <li><div data-rel="分布式">分布式<small>(2)</small></div>
                 
             </li>
             
@@ -490,7 +482,7 @@
     
         
             
-            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
+            <li><div data-rel="AI">AI<small>(1)</small></div>
                 
             </li>
             
@@ -510,23 +502,15 @@
     
         
             
+            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="SpringBoot">SpringBoot<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Spring">Spring<small>(8)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="JDK">JDK<small>(3)</small></div>
                 
             </li>
             
@@ -543,6 +527,22 @@
         
             
             <li><div data-rel="分页">分页<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JDK">JDK<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Spring">Spring<small>(8)</small></div>
                 
             </li>
             
@@ -582,7 +582,7 @@
     
         
             
-            <li><div data-rel="SpringCloud">SpringCloud<small>(1)</small></div>
+            <li><div data-rel="MongoDB">MongoDB<small>(1)</small></div>
                 
             </li>
             
@@ -590,7 +590,7 @@
     
         
             
-            <li><div data-rel="MongoDB">MongoDB<small>(1)</small></div>
+            <li><div data-rel="SpringCloud">SpringCloud<small>(1)</small></div>
                 
             </li>
             
@@ -607,6 +607,14 @@
         
             
             <li><div data-rel="Maven">Maven<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="并发">并发<small>(1)</small></div>
                 
             </li>
             
@@ -638,7 +646,7 @@
     
         
             
-            <li><div data-rel="并发">并发<small>(1)</small></div>
+            <li><div data-rel="feign">feign<small>(1)</small></div>
                 
             </li>
             
@@ -658,8 +666,8 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="139">
-<input type="hidden" id="yelog_site_word_count" value="168.2k">
+<input type="hidden" id="yelog_site_posts_number" value="140">
+<input type="hidden" id="yelog_site_word_count" value="168.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -719,14 +727,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">resume</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">简历</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color2">String</a>
     </li>
     
@@ -755,7 +755,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color5">catch，try</a>
+        <a class="color2">oracle</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -764,10 +764,6 @@
     
     <li class="article-tag-list-item">
         <a class="color3">sqlplus</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">oracle</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -799,6 +795,10 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color5">catch，try</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color5">suse</a>
     </li>
     
@@ -811,15 +811,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">编码</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color1">mysql</a>
     </li>
     
     <li class="article-tag-list-item">
         <a class="color3">备份</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">编码</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -844,6 +844,18 @@
     
     <li class="article-tag-list-item">
         <a class="color5">消息队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">quartz</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">锁</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">分布式</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -875,15 +887,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">quartz</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">锁</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">分布式</a>
+        <a class="color1">NIO BIO IO</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -891,7 +895,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">NIO BIO IO</a>
+        <a class="color1">Guava</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -907,15 +911,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">Guava</a>
+        <a class="color3">MQ</a>
     </li>
     
     <li class="article-tag-list-item">
         <a class="color1">other</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">MQ</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -928,6 +928,14 @@
     
     <li class="article-tag-list-item">
         <a class="color4">RocketMQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">resume</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">简历</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -951,15 +959,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">Ohters</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color1">MySQL</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">Nginx</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -975,6 +975,14 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color1">Nginx</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Ohters</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color3">AI</a>
     </li>
     
@@ -983,11 +991,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">JavaScript</a>
+        <a class="color4">vue</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">vue</a>
+        <a class="color1">JavaScript</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -995,7 +1003,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">Spring</a>
+        <a class="color3">分页</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1003,7 +1011,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">分页</a>
+        <a class="color2">Spring</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1023,11 +1031,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">SpringCloud</a>
+        <a class="color3">MongoDB</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">MongoDB</a>
+        <a class="color2">SpringCloud</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1048,6 +1056,10 @@
     
     <li class="article-tag-list-item">
         <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">feign</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1100,12 +1112,12 @@
             <span class="post-date" title="2020-03-25 00:30:52">2020/03/25</span>
         </a>
         
-        <a  class="Java "
-           href="/2022/09/27/kongzheng1993-为什么需要JMM/"
-           data-tag="Java"
+        <a  class="feign "
+           href="/2022/11/19/kongzheng1993-feign继承特性/"
+           data-tag="feign"
            data-author="" >
-            <span class="post-title" title="为什么需要JMM">为什么需要JMM</span>
-            <span class="post-date" title="2022-09-27 18:30:52">2022/09/27</span>
+            <span class="post-title" title="Spring Cloud Feign继承特性">Spring Cloud Feign继承特性</span>
+            <span class="post-date" title="2022-11-19 10:30:52">2022/11/19</span>
         </a>
         
         <a  class="Java "
@@ -1113,6 +1125,14 @@
            data-tag="Java"
            data-author="" >
             <span class="post-title" title="双检锁">双检锁</span>
+            <span class="post-date" title="2022-09-27 18:30:52">2022/09/27</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2022/09/27/kongzheng1993-为什么需要JMM/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="为什么需要JMM">为什么需要JMM</span>
             <span class="post-date" title="2022-09-27 18:30:52">2022/09/27</span>
         </a>
         
@@ -1240,7 +1260,7 @@
            href="/2022/01/09/kongzheng1993-MySQL_MVCC/"
            data-tag="mysql"
            data-author="" >
-            <span class="post-title" title="MySQL性能优化">MySQL性能优化</span>
+            <span class="post-title" title="MySQL MVCC">MySQL MVCC</span>
             <span class="post-date" title="2022-01-09 18:30:52">2022/01/09</span>
         </a>
         
@@ -1252,19 +1272,19 @@
             <span class="post-date" title="2021-11-29 16:30:10">2021/11/29</span>
         </a>
         
+        <a  class="Spring "
+           href="/2021/11/26/kongzheng1993-记一次频繁FullGC解决/"
+           data-tag="Spring"
+           data-author="" >
+            <span class="post-title" title="记一次频繁FullGC问题解决">记一次频繁FullGC问题解决</span>
+            <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
+        </a>
+        
         <a  class="Java "
            href="/2021/11/26/kongzheng1993-BigDecimal/"
            data-tag="Java"
            data-author="" >
             <span class="post-title" title="BigDecimal用法">BigDecimal用法</span>
-            <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
-        </a>
-        
-        <a  class="Spring "
-           href="/2021/11/26/kongzheng1993-mysql_bitMap/"
-           data-tag="Spring"
-           data-author="" >
-            <span class="post-title" title="MySQL位运算实现权限控制">MySQL位运算实现权限控制</span>
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
@@ -1277,10 +1297,10 @@
         </a>
         
         <a  class="Spring "
-           href="/2021/11/26/kongzheng1993-记一次频繁FullGC解决/"
+           href="/2021/11/26/kongzheng1993-mysql_bitMap/"
            data-tag="Spring"
            data-author="" >
-            <span class="post-title" title="记一次频繁FullGC问题解决">记一次频繁FullGC问题解决</span>
+            <span class="post-title" title="MySQL位运算实现权限控制">MySQL位运算实现权限控制</span>
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
@@ -1460,19 +1480,19 @@
             <span class="post-date" title="2021-01-07 10:30:52">2021/01/07</span>
         </a>
         
-        <a  class="JDK "
-           href="/2020/12/29/kongzheng1993-javax.script/"
-           data-tag="JDK"
-           data-author="" >
-            <span class="post-title" title="JDK自带的脚本引擎javax.script.ScriptEngine">JDK自带的脚本引擎javax.script.ScriptEngine</span>
-            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
-        </a>
-        
         <a  class="分页 "
            href="/2020/12/29/kongzheng1993-PageHelper/"
            data-tag="分页"
            data-author="" >
             <span class="post-title" title="PageHelper">PageHelper</span>
+            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
+        </a>
+        
+        <a  class="JDK "
+           href="/2020/12/29/kongzheng1993-javax.script/"
+           data-tag="JDK"
+           data-author="" >
+            <span class="post-title" title="JDK自带的脚本引擎javax.script.ScriptEngine">JDK自带的脚本引擎javax.script.ScriptEngine</span>
             <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
         </a>
         
@@ -1620,19 +1640,19 @@
             <span class="post-date" title="2020-05-18 00:30:52">2020/05/18</span>
         </a>
         
-        <a  class="Nginx "
-           href="/2020/05/12/kongzheng1993-Nginx/"
-           data-tag="Nginx"
-           data-author="" >
-            <span class="post-title" title="Nginx">Nginx</span>
-            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
-        </a>
-        
         <a  class="others "
            href="/2020/05/12/kongzheng1993-Linux文件句柄/"
            data-tag="others"
            data-author="" >
             <span class="post-title" title="Linux文件句柄">Linux文件句柄</span>
+            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
+        </a>
+        
+        <a  class="Nginx "
+           href="/2020/05/12/kongzheng1993-Nginx/"
+           data-tag="Nginx"
+           data-author="" >
+            <span class="post-title" title="Nginx">Nginx</span>
             <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
         </a>
         
@@ -2061,18 +2081,18 @@
         </a>
         
         <a  class=""
-           href="/2016/07/26/kongzheng1993-centos7_mysql/"
-           data-tag="re"
-           data-author="" >
-            <span class="post-title" title="centos 7 安装mysql遇到的问题">centos 7 安装mysql遇到的问题</span>
-            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
-        </a>
-        
-        <a  class=""
            href="/2016/07/26/kongzheng1993-about_comparator_and_comparable/"
            data-tag="re"
            data-author="" >
             <span class="post-title" title="关于comparator和comparable">关于comparator和comparable</span>
+            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/07/26/kongzheng1993-centos7_mysql/"
+           data-tag="re"
+           data-author="" >
+            <span class="post-title" title="centos 7 安装mysql遇到的问题">centos 7 安装mysql遇到的问题</span>
             <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
         </a>
         
@@ -2386,7 +2406,7 @@ var duoshuoQuery = {short_name:"kongzheng1993"};
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#oop','#float','#servlet','#re','#sample post','#images','#test','#resume','#简历','#String','#new','#sql','#select','#distinct','#group by','#order by','#catch，try','#sys','#sqlplus','#oracle','#java','#reflect','#Class','#对象，Class对象','#github','#hexo','#git','#suse','#server','#FTP','#编码','#mysql','#备份','#linux','#ss','#console','#Linux','#mq','#消息队列','#职业','#业务','#学习','#RSA','#SHA','#加密','#签名','#quartz','#锁','#分布式','#jdk','#NIO BIO IO','#Java','#Web','#jvm','#Guava','#other','#MQ','#node.js','#网络','#RocketMQ','#Mysql','#SQL','#多线程','#算法','#tools','#Ohters','#MySQL','#Nginx','#others','#maven','#并发','#AI','#blog','#JavaScript','#vue','#SpringBoot','#Spring','#JDK','#分页','#Windows','#杂谈','#spring','#JVM','#SpringCloud','#MongoDB','#Spring Cloud','#Maven','#架构','#面试','#数据库','#安全',],
+            'data': ['#oop','#float','#servlet','#re','#sample post','#images','#test','#String','#new','#sql','#select','#distinct','#group by','#order by','#oracle','#sys','#sqlplus','#java','#reflect','#Class','#对象，Class对象','#github','#hexo','#git','#catch，try','#suse','#server','#FTP','#mysql','#备份','#编码','#linux','#ss','#console','#Linux','#mq','#消息队列','#quartz','#锁','#分布式','#职业','#业务','#学习','#RSA','#SHA','#加密','#签名','#NIO BIO IO','#jdk','#Guava','#Java','#Web','#jvm','#MQ','#other','#node.js','#网络','#RocketMQ','#resume','#简历','#Mysql','#SQL','#多线程','#算法','#tools','#MySQL','#others','#maven','#并发','#Nginx','#Ohters','#AI','#blog','#vue','#JavaScript','#SpringBoot','#分页','#JDK','#Spring','#Windows','#杂谈','#spring','#JVM','#MongoDB','#SpringCloud','#Spring Cloud','#Maven','#架构','#面试','#数据库','#feign','#安全',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
