@@ -8,18 +8,21 @@
   <script data-ad-client="ca-pub-8990321486053761" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta name="baidu_union_verify" content="3b2f522004782a6f88e3aa9bb4df0854">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
-<meta name="keywords" content="Java">
+<meta name="description" content="由于FeignClient的编写和其对应的服务提供方Controller及其相似，很多情况我们都是找服务提供方要过来Controller改造一下，其实我们可以利用其继承特性来减少代码的复制操作。 以下一个demo来演示一下： 1. 制定可复用的dto和接口定义创建一个工程user-service-api，里面包含同时可复用于服务端和客户端的接口和dto。 package com.evil.user">
+<meta name="keywords" content="feign">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为什么需要JMM">
-<meta property="og:url" content="https://kongzheng1993.github.io/2022/09/27/kongzheng1993-为什么需要JMM/index.html">
+<meta property="og:title" content="Spring Cloud Feign继承特性">
+<meta property="og:url" content="https://kongzheng1993.github.io/2022/11/19/kongzheng1993-feign继承特性/index.html">
 <meta property="og:site_name" content="Evil">
-<meta property="og:description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
+<meta property="og:description" content="由于FeignClient的编写和其对应的服务提供方Controller及其相似，很多情况我们都是找服务提供方要过来Controller改造一下，其实我们可以利用其继承特性来减少代码的复制操作。 以下一个demo来演示一下： 1. 制定可复用的dto和接口定义创建一个工程user-service-api，里面包含同时可复用于服务端和客户端的接口和dto。 package com.evil.user">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-25T13:50:32.630Z">
+<meta property="og:image" content="https://kongzheng1993.github.io/2022/11/19/kongzheng1993-feign继承特性/1.png">
+<meta property="og:image" content="https://kongzheng1993.github.io/2022/11/19/kongzheng1993-feign继承特性/2.png">
+<meta property="og:updated_time" content="2022-11-21T13:19:53.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为什么需要JMM">
-<meta name="twitter:description" content="https://blog.csdn.net/fuzhongmin05/article/details/105148133/">
+<meta name="twitter:title" content="Spring Cloud Feign继承特性">
+<meta name="twitter:description" content="由于FeignClient的编写和其对应的服务提供方Controller及其相似，很多情况我们都是找服务提供方要过来Controller改造一下，其实我们可以利用其继承特性来减少代码的复制操作。 以下一个demo来演示一下： 1. 制定可复用的dto和接口定义创建一个工程user-service-api，里面包含同时可复用于服务端和客户端的接口和dto。 package com.evil.user">
+<meta name="twitter:image" content="https://kongzheng1993.github.io/2022/11/19/kongzheng1993-feign继承特性/1.png">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -172,10 +175,6 @@
     
         
             
-        
-    
-        
-            
             <li><div data-rel="mysql"><i class="fold iconfont icon-right"></i>mysql<small>(5)</small></div>
                 
                     <ul class="sub hide">
@@ -185,14 +184,6 @@
                         </li>
                             
                     </ul>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="编码">编码<small>(1)</small></div>
                 
             </li>
             
@@ -220,13 +211,21 @@
     
         
             
-            <li><div data-rel="Linux">Linux<small>(1)</small></div>
+            <li><div data-rel="编码">编码<small>(1)</small></div>
                 
             </li>
             
         
     
         
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(1)</small></div>
+                
+            </li>
             
         
     
@@ -255,6 +254,26 @@
     
         
             
+            <li><div data-rel="resume">resume<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
             <li><div data-rel="RSA"><i class="fold iconfont icon-right"></i>RSA<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -278,7 +297,7 @@
     
         
             
-            <li><div data-rel="NIO BIO IO">NIO BIO IO<small>(1)</small></div>
+            <li><div data-rel="jdk">jdk<small>(1)</small></div>
                 
             </li>
             
@@ -286,7 +305,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(1)</small></div>
+            <li><div data-rel="NIO BIO IO">NIO BIO IO<small>(1)</small></div>
                 
             </li>
             
@@ -314,14 +333,6 @@
     
         
             
-        
-    
-        
-            
-        
-    
-        
-            
             <li><div data-rel="Web">Web<small>(5)</small></div>
                 
             </li>
@@ -338,18 +349,6 @@
     
         
             
-            <li><div data-rel="MQ">MQ<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
             <li><div data-rel="other">other<small>(3)</small></div>
                 
             </li>
@@ -357,6 +356,14 @@
         
     
         
+            
+        
+    
+        
+            
+            <li><div data-rel="MQ">MQ<small>(1)</small></div>
+                
+            </li>
             
         
     
@@ -386,10 +393,6 @@
     
         
             
-            <li><div data-rel="resume">resume<small>(1)</small></div>
-                
-            </li>
-            
         
     
         
@@ -418,7 +421,23 @@
     
         
             
+            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="MySQL">MySQL<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Nginx">Nginx<small>(1)</small></div>
                 
             </li>
             
@@ -434,31 +453,23 @@
     
         
             
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="分布式">分布式<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="maven">maven<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="Nginx">Nginx<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="Ohters">Ohters<small>(1)</small></div>
                 
             </li>
             
@@ -474,14 +485,6 @@
     
         
             
-            <li><div data-rel="分布式">分布式<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="AI">AI<small>(1)</small></div>
                 
             </li>
@@ -489,6 +492,18 @@
         
     
         
+            
+            <li><div data-rel="SpringBoot">SpringBoot<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Spring">Spring<small>(8)</small></div>
+                
+            </li>
             
         
     
@@ -502,7 +517,7 @@
     
         
             
-            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
+            <li><div data-rel="JDK">JDK<small>(3)</small></div>
                 
             </li>
             
@@ -510,7 +525,7 @@
     
         
             
-            <li><div data-rel="SpringBoot">SpringBoot<small>(2)</small></div>
+            <li><div data-rel="JavaScript">JavaScript<small>(1)</small></div>
                 
             </li>
             
@@ -534,25 +549,13 @@
     
         
             
-            <li><div data-rel="JDK">JDK<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Spring">Spring<small>(8)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="OS">OS<small>(1)</small></div>
                 
             </li>
+            
+        
+    
+        
             
         
     
@@ -614,14 +617,6 @@
     
         
             
-            <li><div data-rel="并发">并发<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="架构">架构<small>(1)</small></div>
                 
             </li>
@@ -639,6 +634,14 @@
         
             
             <li><div data-rel="数据库">数据库<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="并发">并发<small>(1)</small></div>
                 
             </li>
             
@@ -667,7 +670,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="140">
-<input type="hidden" id="yelog_site_word_count" value="168.7k">
+<input type="hidden" id="yelog_site_word_count" value="169.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -707,10 +710,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color3">re</a>
     </li>
     
@@ -735,6 +734,14 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">catch，try</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color4">sql</a>
     </li>
     
@@ -752,10 +759,6 @@
     
     <li class="article-tag-list-item">
         <a class="color4">order by</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">oracle</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -783,6 +786,10 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color2">oracle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color2">github</a>
     </li>
     
@@ -792,10 +799,6 @@
     
     <li class="article-tag-list-item">
         <a class="color4">git</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color5">catch，try</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -819,10 +822,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">编码</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color1">linux</a>
     </li>
     
@@ -835,7 +834,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">Linux</a>
+        <a class="color3">编码</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -844,6 +843,22 @@
     
     <li class="article-tag-list-item">
         <a class="color5">消息队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">Linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">职业</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">业务</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">学习</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -859,15 +874,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">职业</a>
+        <a class="color2">resume</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">业务</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">学习</a>
+        <a class="color3">简历</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -887,11 +898,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">NIO BIO IO</a>
+        <a class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">jdk</a>
+        <a class="color1">NIO BIO IO</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -911,11 +922,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">MQ</a>
+        <a class="color1">other</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color1">other</a>
+        <a class="color3">MQ</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -928,14 +939,6 @@
     
     <li class="article-tag-list-item">
         <a class="color4">RocketMQ</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">resume</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">简历</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -959,19 +962,11 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color2">Ohters</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color1">MySQL</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color2">others</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">maven</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">并发</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -979,7 +974,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">Ohters</a>
+        <a class="color2">others</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">并发</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">maven</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -991,19 +994,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">vue</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color1">JavaScript</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color1">SpringBoot</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">分页</a>
+        <a class="color2">Spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vue</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1011,7 +1010,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">Spring</a>
+        <a class="color1">JavaScript</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">分页</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -1288,11 +1291,11 @@
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
-        <a  class="Maven "
-           href="/2021/11/26/kongzheng1993-maven_resource_plugin/"
-           data-tag="Maven"
+        <a  class="Spring "
+           href="/2021/11/26/kongzheng1993-spring_session/"
+           data-tag="Spring"
            data-author="" >
-            <span class="post-title" title="maven-resource-plugin">maven-resource-plugin</span>
+            <span class="post-title" title="Spring Session">Spring Session</span>
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
@@ -1304,11 +1307,11 @@
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
-        <a  class="Spring "
-           href="/2021/11/26/kongzheng1993-spring_session/"
-           data-tag="Spring"
+        <a  class="Maven "
+           href="/2021/11/26/kongzheng1993-maven_resource_plugin/"
+           data-tag="Maven"
            data-author="" >
-            <span class="post-title" title="Spring Session">Spring Session</span>
+            <span class="post-title" title="maven-resource-plugin">maven-resource-plugin</span>
             <span class="post-date" title="2021-11-26 16:30:10">2021/11/26</span>
         </a>
         
@@ -1480,19 +1483,19 @@
             <span class="post-date" title="2021-01-07 10:30:52">2021/01/07</span>
         </a>
         
-        <a  class="分页 "
-           href="/2020/12/29/kongzheng1993-PageHelper/"
-           data-tag="分页"
-           data-author="" >
-            <span class="post-title" title="PageHelper">PageHelper</span>
-            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
-        </a>
-        
         <a  class="JDK "
            href="/2020/12/29/kongzheng1993-javax.script/"
            data-tag="JDK"
            data-author="" >
             <span class="post-title" title="JDK自带的脚本引擎javax.script.ScriptEngine">JDK自带的脚本引擎javax.script.ScriptEngine</span>
+            <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
+        </a>
+        
+        <a  class="分页 "
+           href="/2020/12/29/kongzheng1993-PageHelper/"
+           data-tag="分页"
+           data-author="" >
+            <span class="post-title" title="PageHelper">PageHelper</span>
             <span class="post-date" title="2020-12-29 10:30:52">2020/12/29</span>
         </a>
         
@@ -1616,19 +1619,19 @@
             <span class="post-date" title="2020-05-22 00:30:52">2020/05/22</span>
         </a>
         
-        <a  class="maven "
-           href="/2020/05/21/kongzheng1993-maven_install/"
-           data-tag="maven"
-           data-author="" >
-            <span class="post-title" title="记一次Maven冒险">记一次Maven冒险</span>
-            <span class="post-date" title="2020-05-21 00:30:52">2020/05/21</span>
-        </a>
-        
         <a  class="分布式 "
            href="/2020/05/21/kongzheng1993-分布式事务/"
            data-tag="分布式"
            data-author="" >
             <span class="post-title" title="分布式事务">分布式事务</span>
+            <span class="post-date" title="2020-05-21 00:30:52">2020/05/21</span>
+        </a>
+        
+        <a  class="maven "
+           href="/2020/05/21/kongzheng1993-maven_install/"
+           data-tag="maven"
+           data-author="" >
+            <span class="post-title" title="记一次Maven冒险">记一次Maven冒险</span>
             <span class="post-date" title="2020-05-21 00:30:52">2020/05/21</span>
         </a>
         
@@ -1640,19 +1643,19 @@
             <span class="post-date" title="2020-05-18 00:30:52">2020/05/18</span>
         </a>
         
-        <a  class="others "
-           href="/2020/05/12/kongzheng1993-Linux文件句柄/"
-           data-tag="others"
-           data-author="" >
-            <span class="post-title" title="Linux文件句柄">Linux文件句柄</span>
-            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
-        </a>
-        
         <a  class="Nginx "
            href="/2020/05/12/kongzheng1993-Nginx/"
            data-tag="Nginx"
            data-author="" >
             <span class="post-title" title="Nginx">Nginx</span>
+            <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
+        </a>
+        
+        <a  class="others "
+           href="/2020/05/12/kongzheng1993-Linux文件句柄/"
+           data-tag="others"
+           data-author="" >
+            <span class="post-title" title="Linux文件句柄">Linux文件句柄</span>
             <span class="post-date" title="2020-05-12 00:30:52">2020/05/12</span>
         </a>
         
@@ -1873,14 +1876,6 @@
         </a>
         
         <a  class="jvm "
-           href="/2020/03/08/kongzheng1993-jmap/"
-           data-tag="jvm"
-           data-author="" >
-            <span class="post-title" title="jmap">jmap</span>
-            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
-        </a>
-        
-        <a  class="jvm "
            href="/2020/03/08/kongzheng1993-jhat/"
            data-tag="jvm"
            data-author="" >
@@ -1893,6 +1888,14 @@
            data-tag="other"
            data-author="" >
             <span class="post-title" title="带你撸一台免费云服务器">带你撸一台免费云服务器</span>
+            <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
+        </a>
+        
+        <a  class="jvm "
+           href="/2020/03/08/kongzheng1993-jmap/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="jmap">jmap</span>
             <span class="post-date" title="2020-03-08 00:30:52">2020/03/08</span>
         </a>
         
@@ -2041,18 +2044,18 @@
         </a>
         
         <a  class=""
-           href="/2016/07/28/kongzheng1993-Properties/"
-           data-tag="oop"
-           data-author="" >
-            <span class="post-title" title="properties文件的使用">properties文件的使用</span>
-            <span class="post-date" title="2016-07-28 00:00:00">2016/07/28</span>
-        </a>
-        
-        <a  class=""
            href="/2016/07/28/kongzheng1993-method_of_request&response/"
            data-tag="oop"
            data-author="" >
             <span class="post-title" title="request&amp;response">request&amp;response</span>
+            <span class="post-date" title="2016-07-28 00:00:00">2016/07/28</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/07/28/kongzheng1993-Properties/"
+           data-tag="oop"
+           data-author="" >
+            <span class="post-title" title="properties文件的使用">properties文件的使用</span>
             <span class="post-date" title="2016-07-28 00:00:00">2016/07/28</span>
         </a>
         
@@ -2065,18 +2068,18 @@
         </a>
         
         <a  class=""
-           href="/2016/07/26/kongzheng1993-servlet/"
-           data-tag="servlet"
-           data-author="" >
-            <span class="post-title" title="Servlet">Servlet</span>
-            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
-        </a>
-        
-        <a  class=""
            href="/2016/07/26/kongzheng1993-请求转发与重定向/"
            data-tag="re"
            data-author="" >
             <span class="post-title" title="请求转发和重定向">请求转发和重定向</span>
+            <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2016/07/26/kongzheng1993-servlet/"
+           data-tag="servlet"
+           data-author="" >
+            <span class="post-title" title="Servlet">Servlet</span>
             <span class="post-date" title="2016-07-26 00:00:00">2016/07/26</span>
         </a>
         
@@ -3266,7 +3269,7 @@ tryReleaseShared(int)//共享方式。尝试释放资源，成功则返回true�
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#oop','#float','#servlet','#re','#sample post','#images','#test','#String','#new','#sql','#select','#distinct','#group by','#order by','#oracle','#sys','#sqlplus','#java','#reflect','#Class','#对象，Class对象','#github','#hexo','#git','#catch，try','#suse','#server','#FTP','#mysql','#备份','#编码','#linux','#ss','#console','#Linux','#mq','#消息队列','#quartz','#锁','#分布式','#职业','#业务','#学习','#RSA','#SHA','#加密','#签名','#NIO BIO IO','#jdk','#Guava','#Java','#Web','#jvm','#MQ','#other','#node.js','#网络','#RocketMQ','#resume','#简历','#Mysql','#SQL','#多线程','#算法','#tools','#MySQL','#others','#maven','#并发','#Nginx','#Ohters','#AI','#blog','#vue','#JavaScript','#SpringBoot','#分页','#JDK','#Spring','#Windows','#杂谈','#spring','#JVM','#MongoDB','#SpringCloud','#Spring Cloud','#Maven','#架构','#面试','#数据库','#feign','#安全',],
+            'data': ['#oop','#float','#re','#sample post','#images','#test','#String','#new','#servlet','#catch，try','#sql','#select','#distinct','#group by','#order by','#sys','#sqlplus','#java','#reflect','#Class','#对象，Class对象','#oracle','#github','#hexo','#git','#suse','#server','#FTP','#mysql','#备份','#linux','#ss','#console','#编码','#mq','#消息队列','#Linux','#职业','#业务','#学习','#quartz','#锁','#分布式','#resume','#简历','#RSA','#SHA','#加密','#签名','#jdk','#NIO BIO IO','#Guava','#Java','#Web','#jvm','#other','#MQ','#node.js','#网络','#RocketMQ','#Mysql','#SQL','#多线程','#算法','#tools','#Ohters','#MySQL','#Nginx','#others','#并发','#maven','#AI','#blog','#SpringBoot','#Spring','#vue','#JDK','#JavaScript','#分页','#Windows','#杂谈','#spring','#JVM','#MongoDB','#SpringCloud','#Spring Cloud','#Maven','#架构','#面试','#数据库','#feign','#安全',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
